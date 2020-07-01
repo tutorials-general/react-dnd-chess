@@ -2,7 +2,7 @@ import React from "react";
 
 import Square from "components/Square";
 import Knight from "components/Knight";
-import { moveKnight } from "data/Game";
+import { moveKnight, canMoveKnight } from "data/Game";
 
 export const renderSquare = (i, [knightX, knightY]) => {
   const x = i % 8;
@@ -11,7 +11,9 @@ export const renderSquare = (i, [knightX, knightY]) => {
   const isKightHere = knightX === x && knightY === y;
   const piece = isKightHere ? <Knight /> : null;
   const handlerSquareClick = (toX, toY) => {
-    moveKnight(toX, toY);
+    if (canMoveKnight(toX, toY)) {
+      moveKnight(toX, toY);
+    }
   };
 
   return (
