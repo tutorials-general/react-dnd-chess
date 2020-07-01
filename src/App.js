@@ -1,8 +1,8 @@
 import React from "react";
 import Board from "components/Board";
 
-function App() {
-  return <Board knightPosition={[0, 0]} />;
+function App({ knightPosition }) {
+  return <Board knightPosition={knightPosition} />;
 }
 
 export default App;
